@@ -7,8 +7,8 @@ from cli_utils.get_similar_devs import get_user_vectors_dataframe
 from data.constants import BUILD_PATH, JSONS_PATH, N_JOBS, REPOS_PATH
 from services.file_system import FileSystemService
 from services.user_vectors import UserVectorService
-from similar_dev_search.services import setup
 from similar_dev_search.services.git import GitService
+from similar_dev_search.services.setup import setup
 
 
 @click.group()
@@ -39,7 +39,7 @@ def fetch_repos(username: str, reponame: str, max_repos: int, max_depth: int, ma
     print("Searching done...")
     print("Setup tree-sitter...")
     gs = GitService()
-    setup.setup(gs)
+    setup(gs)
     print("Setup done...")
     repositories_count = FileSystemService.get_file_count(jsons_path)
     Parallel(n_jobs=n_jobs)(

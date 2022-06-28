@@ -5,7 +5,6 @@ from github import Repository
 from similar_dev_search.services.file_system import FileSystemService, JsonService
 from similar_dev_search.services.git import GitService, GithubService
 from similar_dev_search.services.git import RepositoryProvider
-from similar_dev_search.services.setup import setup
 
 
 def find_repos(username: str, repo_name: str, depth: int = 1, max_depth: int = 3, max_top_starred_repos: int = 5,
